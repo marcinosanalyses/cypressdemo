@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/marcinosanalyses/cypressdemo/issues"
   },
-  "homepage": "https://github.com/marcinosanalyses/cypressdemo#readme"
+  "homepage": "https://github.com/marcinosanalyses/cypressdemo#readme",
+  "devDependencies": {
+    "cypress": "^5.4.0"
+  }
 }
