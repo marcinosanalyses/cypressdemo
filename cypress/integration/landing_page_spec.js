@@ -14,6 +14,15 @@ describe("Login in, Web form ", () => {
         .should('be.visible')
         .and('contain','Search') //check if Search button is visible and contains Search text
       });
-      
+    });
+    context("Check if support widgets are available", () => {  
+      it("check if chat icon is available", function () {
+        cy.get('#fc_widget').click()
+      });
+      it("check if cookies policy is visible", function () {
+        cy.get('#cookies-bar > .-flex-align-flex-start')
+        .invoke('text')
+        .should('equal','By using this website, you agree to our cookie policy')
+      });
     });
 });
