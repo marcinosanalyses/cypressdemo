@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:run": "cypress run --browser chrome --headless",
     "cy:run": "cypress run --browser chrome --headless --record --key 46d9c621-9ac4-418b-b281-b5ca1a49b3f4"
-
   },
   "repository": {
     "type": "git",
