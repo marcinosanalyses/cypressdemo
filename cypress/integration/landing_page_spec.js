@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 describe("Login in, Web form ", () => {
     beforeEach(() => {
       cy.fixture("core_config.json").as("CoreConfig");
