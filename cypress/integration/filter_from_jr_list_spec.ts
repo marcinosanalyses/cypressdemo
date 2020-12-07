@@ -21,10 +21,18 @@ describe("Checking filters with multiple attributes", () => {
         cy.intercept("**/api/public/locations/autocomplete?*").as("getLocations");
         cy.get('.filter-input .el-form-select-next__control')
         .type('Stockholm'); //Type Locations
-        cy.wait("@getLocations").get('#react-select-2-option-0').click()
-        cy.get('.rc-slider-step').click(10,0)
-        cy.get('.el-form-select-next__placeholder').eq(1)
-        //TO DO 
-        //type Jira, Scrum in skills
+        cy.wait("@getLocations").get('#react-select-2-option-0').click();
+        cy.get('.rc-slider-step').click(25,0);
+        cy.intercept("**/api/public/skills?*").as("getSkills");
+        cy.get('.el-form-select-next__placeholder').eq(1).type('SQL');
+        cy.wait("@getSkills");
+        cy.focused().type("{enter}");
+        cy.get('.el-form-select-next__placeholder').eq(1).type('.Net');
+        cy.wait("@getSkills");
+        cy.focused().type("{enter}");
+        cy.get('.button').contains('Close filters').click();
+        cy.get('.floated-list > :nth-child(2) > .el-flex')
+        .should('be.visible')
+        .and('have.text','SQL');
     });
 });
