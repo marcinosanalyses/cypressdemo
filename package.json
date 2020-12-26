@@ -6,7 +6,7 @@
   "scripts": {
     "cy:run": "cypress run --browser chrome --headless",
     "cy:run:rec": "cypress run --browser chrome --headless --record --key 46d9c621-9ac4-418b-b281-b5ca1a49b3f4",
-    "cy:run:rec:tag": "cypress run --browser chrome --headless --tag 'handle react pop-up window' --record --key 46d9c621-9ac4-418b-b281-b5ca1a49b3f4",
+    "cy:run:rec:tag": "cypress run --browser chrome --headless --tag 'react-pop-up-window' --record --key 46d9c621-9ac4-418b-b281-b5ca1a49b3f4",
     "start": "cypress open"
   },
   "repository": {
