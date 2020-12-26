@@ -1,4 +1,12 @@
 {
   "baseUrl": "https://verama.com/",
-  "projectId": "tv927q"
+  "projectId": "tv927q",
+  "testFiles": [
+    "login_spec.ts"
+  ],
+  "env": {
+    "users": {
+      "manager": { "email": "mar.pryw@yahoo.com", "password": "4Y8xH@C._VSrmVU" }
+    }
+  }
 }
