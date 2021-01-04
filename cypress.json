@@ -2,6 +2,9 @@
   "baseUrl": "https://verama.com/",
   "projectId": "tv927q",
   "testFiles": [
+    "filter_from_jr_list_spec.ts",
+    "filters_from_home_spec.ts",
+    "landing_page_spec.ts",
     "login_spec.ts"
   ],
   "env": {

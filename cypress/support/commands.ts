@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/no-use-before-define,@typescript-eslint/no-namespace */
-const SHOULD_STUB = true;
+/// <reference types="cypress" />
+// const SHOULD_STUB = true;
+
 Cypress.Commands.add("loginWithCredentials", (email = "", password = "") => {
     cy.get('[data-test=submit--button]').should("be.visible");
     cy.get('[data-test=username--text-input]').clear().type(email);
