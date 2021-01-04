@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+
 describe("Checking filters with multiple attributes", () => {
     beforeEach(() => {
         cy.visit('/');
