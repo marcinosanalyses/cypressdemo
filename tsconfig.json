@@ -18,6 +18,5 @@
     "types": ["cypress", "node"],
     "module": "commonjs"
   },
-  "include": ["src"],
   "exclude": ["node_modules"]
 }
