@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe("Login in, Web form ", () => {
     beforeEach(() => {
       cy.fixture("core_config.json").as("CoreConfig");
@@ -7,7 +8,7 @@ describe("Login in, Web form ", () => {
       });  
     context("Check if website is available", () => {  
       it("Display the landingpage", function () {
-        cy.location('pathname').should('eq', '/')
+        cy.location('pathname').should('eq', '/en/')
       });
       it("check if login button is visible", function () {
         cy.get('[data-test=login--button]').contains('Log in') //check if Login button is available
