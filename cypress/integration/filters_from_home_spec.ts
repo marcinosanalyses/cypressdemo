@@ -23,14 +23,14 @@ describe("Checking filters with multiple attributes", () => {
             cy.get('.el-form-text').should('have.value','Jira');
             cy.get('.filter-input').should('have.text','Stockholm'); //Check if location is set
         })
-        it.only("Add two Skills, check if they are availble in request details", function () {
+        it("Add two Skills, check if they are availble in request details", function () {
             cy.get('@keyword').type('Javascript, Typescript');
             cy.get('@Search').click();
             cy.get('.el-form-text').should('have.value','Javascript, Typescript');
-            cy.get('.section > .-flex-align-flex-start').click();
+            cy.get('.section > .-flex-align-flex-start').eq(0).click();
             cy.intercept("**/api/public/job-requests/***/**").as("getJobRequestDetails");
             cy.wait('@getJobRequestDetails')
-            cy.get('.html-renderer').contains('Javascript').contains('Typescript');
+            cy.get('.-inner-margin-md > .section--border-radius').should('include.text','Javascript').and('include.text','Typescript');
             
         })
     })

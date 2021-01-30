@@ -1,8 +1,11 @@
 /// <reference types="cypress" />
 
-describe("Login in, Web form ", () => {
+describe("Landing Page tests", () => {
     beforeEach(() => {
-      cy.fixture("core_config.json").as("CoreConfig");
+      cy.fixture("core_config.json").as('CoreConfig');
+      cy.fixture('testdata').then(function (testdata) {
+        this.testdata = testdata
+    })
       cy.visit('/')
       cy.get('.-margin > .route-button > .el-button-ng')
       .as('searchButton')
@@ -11,6 +14,11 @@ describe("Login in, Web form ", () => {
       it("Display the landingpage", function () {
         cy.location('pathname').should('eq', '/en/')
       });
+      it('Validate all to Menu Texts', function () {
+        cy.get('.-flex-direction-column > .nav-item__container').each(($el, index) => {
+            expect($el).to.contain(this.testdata.topMenu[index])
+        });
+      })
       it("check if login button is visible", function () {
         cy.get('[data-test=login--button]').contains('Log in') //check if Login button is available
       });
@@ -19,6 +27,9 @@ describe("Login in, Web form ", () => {
         .should('be.visible')
         .and('contain','Search') //check if Search button is visible and contains Search text
       });
+      it('Validate Page Title', () => {
+        cy.title().should('eq', 'Verama - marketplace where talent and talent-seekers meet')
+    })
     });
     context("Check if support widgets are available", () => {  
       it("check if chat icon is available", function () {
