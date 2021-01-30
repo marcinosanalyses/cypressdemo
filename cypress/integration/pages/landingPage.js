@@ -1,12 +1,11 @@
-class landingPage {
+class LandingPage {
 
-    welcomeTxt() {
-        return cy.get('#welcome')
+    getSearchButton() {
+        return cy.get('.-margin > .route-button > .el-button-ng');
     }
-
-    logoutTxt() {
-        return cy.contains('Logout')
+    getTopMenu() {
+        return cy.get('.-flex-direction-column > .nav-item__container');
     }
 }
 
-export default landingPage
+export default LandingPage

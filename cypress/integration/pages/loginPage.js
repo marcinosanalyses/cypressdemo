@@ -1,15 +1,13 @@
-class loginPage {
+class LoginPage {
 
-    usernameInput() {
-        return cy.get('#txtUsername')
+    getUsernameInput() {
+        return cy.get('[data-test=username--text-input]')
     }
-
-    passwordInput() {
-        return cy.get('#txtPassword')
+    getPasswordInput() {
+        return cy.get('[data-test=password--text-input]')
     }
-
-    loginBtn() {
-        return cy.get('#btnLogin')
+    getSubmitButton() {
+        return cy.get('[data-test=submit--button]')
     }
 }
-export default loginPage
+export default LoginPage

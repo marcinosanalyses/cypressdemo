@@ -1,21 +1,22 @@
 /// <reference types="cypress" />
+import LandingPage from '../integration/pages/LandingPage'
+const landingPage = new LandingPage
 
 describe("Landing Page tests", () => {
     beforeEach(() => {
       cy.fixture("core_config.json").as('CoreConfig');
       cy.fixture('testdata').then(function (testdata) {
         this.testdata = testdata
-    })
+      })
       cy.visit('/')
-      cy.get('.-margin > .route-button > .el-button-ng')
-      .as('searchButton')
-      });  
+
+    })
     context("Check if website is available", () => {  
       it("Display the landingpage", function () {
         cy.location('pathname').should('eq', '/en/')
       });
       it('Validate all to Menu Texts', function () {
-        cy.get('.-flex-direction-column > .nav-item__container').each(($el, index) => {
+        landingPage.getTopMenu().each(($el, index) => {
             expect($el).to.contain(this.testdata.topMenu[index])
         });
       })
@@ -23,7 +24,7 @@ describe("Landing Page tests", () => {
         cy.get('[data-test=login--button]').contains('Log in') //check if Login button is available
       });
       it("check if Search button is visible", function () {
-        cy.get('@searchButton') //using a search alias
+        landingPage.getSearchButton() //using a search alias
         .should('be.visible')
         .and('contain','Search') //check if Search button is visible and contains Search text
       });
@@ -45,7 +46,7 @@ describe("Landing Page tests", () => {
     context("Check if searching Job Ads works fine", () => {  
       it("check if searching by a skill works fine", function () {
         cy.get('.el-form-text').type('typescript')
-        cy.get('@searchButton').click()
+        landingPage.getSearchButton().click()
         cy.location().should((loc) => {
           expect(loc.search).to.include('typescript')
         })
