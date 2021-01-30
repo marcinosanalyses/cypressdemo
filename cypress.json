@@ -10,10 +10,10 @@
   "viewportHeight": 720,
   "viewportWidth": 1280,
   "testFiles": [
-    "landing_page_spec.js",
-    "login_spec.ts",
-    "filters_from_home_spec.ts",
-    "filter_from_jr_list_spec.ts"
+    "landingPage.js",
+    "login.ts",
+    "landingPageFilters.ts",
+    "jobRequests.ts"
   ],
   "env": {
     "users": {
