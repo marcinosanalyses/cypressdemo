@@ -3,6 +3,8 @@ var randomNo = new Date().toISOString().split('.')[0].replace('T','').replace(':
 const AccountEmail = 'test'+randomNo+'@test.test'
 const LastName = 'LastName' + randomNo
 
+
+
 describe("Create a Candidate", () => {
     it("Login as a Company Manager", function () {
         cy.loginCompanyManager()

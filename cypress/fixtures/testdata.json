@@ -1,0 +1,8 @@
+
+{
+    "username": "Admin",
+    "password": "admin123",
+    "welcomeText": "Welcome",
+    "topMenu": ["Find jobs", "Features", "About us", "For clients"],
+    "empDistPieChart": ["40%", "20%", "13%", "13%", "13%"]
+}

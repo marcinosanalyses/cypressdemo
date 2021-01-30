@@ -1,10 +1,12 @@
+import LoginPage from '../integration/pages/LoginPage'
+const loginPage = new LoginPage
 /// <reference types="cypress" />
 // const SHOULD_STUB = true;
 
 Cypress.Commands.add("loginWithCredentials", (email = "", password = "") => {
-    cy.get('[data-test=submit--button]').should("be.visible");
-    cy.get('[data-test=username--text-input]').clear().type(email);
-    cy.get('[data-test=password--text-input]').clear().type(password).type("{enter}");
+    loginPage.getSubmitButton().should("be.visible");
+    loginPage.getUsernameInput().clear().type(email);
+    loginPage.getPasswordInput().clear().type(password).type("{enter}");
   });
 
 Cypress.Commands.add('loginCompanyManager', () => {

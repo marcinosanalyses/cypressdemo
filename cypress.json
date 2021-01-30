@@ -1,11 +1,19 @@
 {
   "baseUrl": "https://verama.com/",
   "projectId": "tv927q",
+  "pageLoadTimeout": 100000,
+  "defaultCommandTimeout": 20000,
+  "execTimeout": 60000,
+  "requestTimeout": 30000,
+  "responseTimeout": 30000,
+  "taskTimeout": 60000,
+  "viewportHeight": 720,
+  "viewportWidth": 1280,
   "testFiles": [
-    "login_spec.ts",
-    "landing_page_spec.ts",
-    "filters_from_home_spec.ts",
-    "filter_from_jr_list_spec.ts"
+    "landingPage.js",
+    "login.ts",
+    "landingPageFilters.ts",
+    "jobRequests.ts"
   ],
   "env": {
     "users": {
