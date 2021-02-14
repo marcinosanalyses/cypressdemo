@@ -1,4 +1,4 @@
-import FindJobs from '../integration/pages/FindJobs'
+import FindJobs from '../support/pages/FindJobs'
 const findJobs = new FindJobs
 
 /// <reference types="cypress" />

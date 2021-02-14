@@ -1,4 +1,4 @@
-import LoginPage from '../integration/pages/LoginPage'
+import LoginPage from '../support/pages/LoginPage'
 const loginPage = new LoginPage
 /// <reference types="cypress" />
 // const SHOULD_STUB = true;

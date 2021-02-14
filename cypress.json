@@ -11,9 +11,9 @@
   "viewportWidth": 1280,
   "testFiles": [
     "landingPage.js",
-    "login.ts",
-    "landingPageFilters.ts",
-    "jobRequests.ts"
+    "login.js",
+    "landingPageFilters.js",
+    "jobRequests.js"
   ],
   "env": {
     "users": {
