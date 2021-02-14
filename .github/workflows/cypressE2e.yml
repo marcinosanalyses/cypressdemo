@@ -1,28 +1,23 @@
-name: Daily cross-browser testing
-
-on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron: '*/10 * * * *'
-jobs:
-  cross-browser:
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node12.16.1-chrome80-ff73
-    steps:
-      - name: Checkout Commit
-        uses: actions/checkout@v1
-      - name: Firefox Browser Tests
-        uses: cypress-io/github-action@v1
-        with:
-          browser: firefox
-          start: yarn start
-          wait-on-timeout: 300
-          config: defaultCommandTimeout=100000,pageLoadTimeout=100000,watchForFileChanges=false,video=false
-      - name: Chrome Browser Tests
-        uses: cypress-io/github-action@v1
-        with:
-          browser: chrome
-          start: yarn start
-          wait-on-timeout: 300
-          config: defaultCommandTimeout=100000,pageLoadTimeout=100000,watchForFileChanges=false,video=false
+name: E2E tests daily
+    on:
+      push:
+        branches:
+          - main
+      pull_request:
+        types: [opened, synchronize, reopened]
+        branches:
+          - main
+       schedule:
+         - cron: "*/5 * * * *"
+    jobs:
+      cypress-run:
+        timeout-minutes: 10
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v1
+          - name: Setup npm package
+            run: yarn install
+          - name: Run E2E test
+            uses: cypress-io/github-action@v1
+            run: yarn cy:run
