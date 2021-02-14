@@ -1,23 +1,23 @@
 name: E2E tests daily
-    on:
-      push:
-        branches:
-          - main
-      pull_request:
-        types: [opened, synchronize, reopened]
-        branches:
-          - main
-       schedule:
-         - cron: "*/5 * * * *"
-    jobs:
-      cypress-run:
-        timeout-minutes: 10
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout
-            uses: actions/checkout@v1
-          - name: Setup npm package
-            run: yarn install
-          - name: Run E2E test
-            uses: cypress-io/github-action@v1
-            run: yarn cy:run
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      types: [opened, synchronize, reopened]
+      branches:
+        - main
+    schedule:
+      - cron: "*/5 * * * *"
+jobs:
+    cypress-run:
+      timeout-minutes: 10
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v1
+        - name: Setup npm package
+          run: yarn install
+        - name: Run E2E test
+          uses: cypress-io/github-action@v1
+          run: yarn cy:run
