@@ -1,24 +1,24 @@
 name: E2E tests daily
-  on:
-    push:
-      branches:
-        - main
-    pull_request:
-      types: [opened, synchronize, reopened]
-      branches:
-        - main
-    schedule:
-        - cron: "*/5 * * * *"
-  jobs:
-    start:
-      # example where instead of forming the default "cypress run ..."
-      # the user can specify their own command
-      runs-on: ubuntu-20.04
-      steps:
-        - name: Checkout 🛎
-          uses: actions/checkout@v2
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+  schedule:
+      - cron: "*/5 * * * *"
+jobs:
+  start:
+    # example where instead of forming the default "cypress run ..."
+    # the user can specify their own command
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
 
-        - name: Custom tests 🧪
-          uses: ./
-          with:
-            command: yarn main:ci
+      - name: Custom tests 🧪
+        uses: ./
+        with:
+          command: yarn main:ci
