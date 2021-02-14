@@ -22,10 +22,13 @@ describe("Create a Candidate", () => {
         .should('contain','Member')
         .click();
         cy.get(':nth-child(1) > .-flex-direction-column > .-flex > .el-form-text')
+        .click()
         .type('First Name');
         cy.get('.-flex-align-flex-start > :nth-child(2) > .-flex-direction-column > .-flex > .el-form-text')
+        .click()
         .type(LastName);
         cy.get('.-flex-direction-column.-inner-margin > :nth-child(2) > .-flex-direction-column > .-flex > .el-form-text')
+        .click()
         .type(AccountEmail);
         cy.intercept("**/api/public/locations/autocomplete?*").as("getLocations");
         cy.get('.-flex-direction-column.-width-xxs-12 > .-flex-direction-column > .typeahead > .el-form-select-next-wrapper > .el-form-select-next > .el-form-select-next__control')
