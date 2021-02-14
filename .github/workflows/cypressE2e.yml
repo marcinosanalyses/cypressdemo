@@ -21,4 +21,5 @@ jobs:
       - name: Custom tests 🧪
         uses: ./
         with:
+          build: yarn install
           command: yarn main:ci
