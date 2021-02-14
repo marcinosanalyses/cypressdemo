@@ -1,5 +1,8 @@
 name: End-to-end tests
 on: [push]
+schedule:
+# * is a special character in YAML so you have to quote this string
+- cron:  '*/15 * * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-16.04

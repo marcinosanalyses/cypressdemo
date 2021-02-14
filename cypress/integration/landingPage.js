@@ -29,7 +29,7 @@ describe("Landing Page tests", () => {
         .and('contain','Search') //check if Search button is visible and contains Search text
       });
       it('Validate Page Title', () => {
-        cy.title().should('eq', 'Verama - marketplace where talent and talent-seekers meet')
+        cy.title().should('eq', 'Verama - marketplace')
     })
     });
     context("Check if support widgets are available", () => {  
