@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import LandingPage from '../integration/pages/LandingPage'
+import LandingPage from '../support/pages/LandingPage'
 const landingPage = new LandingPage
 
 describe("Landing Page tests", () => {

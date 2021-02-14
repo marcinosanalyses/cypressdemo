@@ -15,7 +15,7 @@ describe("Checking filters with multiple attributes", () => {
             cy.get('.el-form-text').should('have.value','Testing'); //check if the skill is available in the filter
         });
         it("Add a Skill and Location and search ", function () {
-            cy.get('@keyword').type('Jira');
+            cy.get('@keyword').click().type('Jira');
             cy.get('.el-form-select-next__control').type('Stockholm'); //Type Locations
             cy.wait("@getLocations").get('#react-select-2-option-0').click()
             cy.intercept("**/api/public/job-requests?*").as("getJobRequests");
