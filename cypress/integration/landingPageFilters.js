@@ -1,4 +1,6 @@
 /// <reference types="cypress" />
+import JobRequestDetails from '../support/pages/JobRequestDetails'
+const jobRequestDetails = new JobRequestDetails
 
 describe("Checking filters with multiple attributes", () => {
     beforeEach(() => {
@@ -30,7 +32,6 @@ describe("Checking filters with multiple attributes", () => {
             cy.get('.section > .-flex-align-flex-start').eq(0).click();
             cy.intercept("**/api/public/job-requests/***/**").as("getJobRequestDetails");
             cy.wait('@getJobRequestDetails')
-            cy.get('.-inner-margin-md > .section--border-radius').should('include.text','Javascript').and('include.text','Typescript');
-            
+            jobRequestDetails.getJobRequestDetails().should('contain','Typescript')
         })
     })
