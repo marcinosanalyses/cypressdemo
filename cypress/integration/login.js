@@ -29,6 +29,7 @@ describe("Create a Candidate", () => {
         .type(AccountEmail);
         cy.intercept("**/api/public/locations/autocomplete?*").as("getLocations");
         cy.get('.-flex-direction-column.-width-xxs-12 > .-flex-direction-column > .typeahead > .el-form-select-next-wrapper > .el-form-select-next > .el-form-select-next__control')
+        .click()
         .type('Stockholm');
         cy.wait('@getLocations');
         cy.get("#react-select-10-option-0").contains("Stockholm", {
