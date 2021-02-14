@@ -5,24 +5,28 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron: '*/10 * * * *'
 jobs:
-  cross-browser:
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node12.16.1-chrome80-ff73
+  basic-ubuntu-16:
+    runs-on: ubuntu-16.04
     steps:
-      - name: Checkout Commit
-        uses: actions/checkout@v1
-      - name: Firefox Browser Tests
-        uses: cypress-io/github-action@v1
-        with:
-          browser: firefox
-          start: yarn start
-          wait-on-timeout: 300
-          config: defaultCommandTimeout=100000,pageLoadTimeout=100000,watchForFileChanges=false,video=false
-      - name: Chrome Browser Tests
-        uses: cypress-io/github-action@v1
-        with:
-          browser: chrome
-          start: yarn start
-          wait-on-timeout: 300
-          config: defaultCommandTimeout=100000,pageLoadTimeout=100000,watchForFileChanges=false,video=false
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress tests
+        # normally you would write
+        # uses: cypress-io/github-action@v2
+
+  basic-on-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress tests
+
+  basic-on-mac:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress tests
