@@ -1,32 +1,23 @@
-name: Daily cross-browser testing
-
-on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron: '*/10 * * * *'
-jobs:
-  basic-ubuntu-16:
-    runs-on: ubuntu-16.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress tests
-        # normally you would write
-        # uses: cypress-io/github-action@v2
-
-  basic-on-windows:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress tests
-
-  basic-on-mac:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress tests
+name: E2E tests daily
+    on:
+      push:
+        branches:
+          - main
+      pull_request:
+        types: [opened, synchronize, reopened]
+        branches:
+          - main
+       schedule:
+         - cron: "*/5 * * * *"
+    jobs:
+      cypress-run:
+        timeout-minutes: 10
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v1
+          - name: Setup npm package
+            run: yarn install
+          - name: Run E2E test
+            uses: cypress-io/github-action@v1
+            run: yarn cy:run
