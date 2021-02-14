@@ -8,18 +8,16 @@ on:
     branches:
       - main
   schedule:
-      - cron: "*/5 * * * *"
+      - cron: "*/20 * * * *"
 jobs:
-  start:
-    # example where instead of forming the default "cypress run ..."
-    # the user can specify their own command
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v2
-
-      - name: Custom tests 🧪
-        uses: ./
-        with:
-          build: yarn install
-          command: yarn main:ci
+  cypress-run:
+    runs-on: ubuntu-16.04
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v1
+        # https://github.com/cypress-io/github-action
+        - name: Cypress run
+          uses: cypress-io/github-action@v1
+          with:
+            build: yarn install
+            command: yarn main:ci
