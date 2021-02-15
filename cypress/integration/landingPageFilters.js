@@ -32,6 +32,6 @@ describe("Checking filters with multiple attributes", () => {
             cy.get('.section > .-flex-align-flex-start').eq(0).click();
             cy.intercept("**/api/public/job-requests/***/**").as("getJobRequestDetails");
             cy.wait('@getJobRequestDetails')
-            jobRequestDetails.getJobRequestDetails().should('contain','Typescript')
+            jobRequestDetails.getJobRequestDetails().contains(/typescript/i); //not case sensitive
         })
     })
