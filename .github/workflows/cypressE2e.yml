@@ -8,15 +8,15 @@ on:
       branches:
         - main
     schedule:
-      - cron: "*/5 * * * *"
+      - cron: "*/120 * * * *"
 jobs:
     cypress-run:
-      timeout-minutes: 10
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v1
-        - name: Setup npm package
-          run: yarn install
-        - name: Run E2E test
-          run: yarn cy:run
+          uses: actions/checkout@v2
+       - name: Cypress run
+          uses: cypress-io/github-action@v2
+          with:
+          build: yarn install
+          command: yarn main:ci
