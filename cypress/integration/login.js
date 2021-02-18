@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 var randomNo = new Date().toISOString().split('.')[0].replace('T','').replace(':','').replace(':','')
 const AccountEmail = 'test'+randomNo+'@test.test'
 const LastName = 'LastName' + randomNo
