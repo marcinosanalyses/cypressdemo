@@ -16,6 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './commands';
 import './types';
+import './pages/FindJobs';
+import './pages/JobRequestDetails';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
