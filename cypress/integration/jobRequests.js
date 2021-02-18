@@ -1,6 +1,3 @@
-import FindJobs from '../support/pages/FindJobs'
-const findJobs = new FindJobs
-
 /// <reference types="cypress" />
 
 
@@ -8,10 +5,10 @@ describe("Checking filters with multiple attributes", () => {
     beforeEach(() => {
         cy.intercept("**/api/public/job-requests?*").as("getJobRequests");
         cy.visit('/'+'job-requests');
+        cy.getFilterButton().click();
+        cy.wait("@getJobRequests")
     });
     it("Open, Close Filters", function () {
-        cy.get('.button').contains('Filters').click();
-        cy.wait("@getJobRequests")
         cy.get('.button').contains('Close filters')
         cy.get('.section--border-radius > .section')
         cy.get('.section--border-radius > .el-flex.-padding-top-md')
@@ -23,8 +20,6 @@ describe("Checking filters with multiple attributes", () => {
         .click();
     });
     it("Filter by Skills and Location in List view", function () {
-        findJobs.getFiltersButton().should('have.text','Filters').click();
-        cy.wait("@getJobRequests")
         cy.intercept("**/api/public/locations/autocomplete?*").as("getLocations");
         cy.get('.filter-input .el-form-select-next__control')
         .type('Stockholm'); //Type Locations

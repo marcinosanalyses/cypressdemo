@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 import LandingPage from '../support/pages/LandingPage'
 const landingPage = new LandingPage
 
