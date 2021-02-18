@@ -12,7 +12,7 @@ jobs:
         uses: cypress-io/github-action@v2.8.2
         with:
           build: yarn install
-          command: yarn main:ci
+          command: yarn cy:run:rec
           record: true
         env:
           # pass the Dashboard record key as an environment variable
