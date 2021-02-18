@@ -17,7 +17,8 @@
   ],
   "env": {
     "users": {
-      "manager": { "email": "mar.pryw@yahoo.com", "password": "4Y8xH@C._VSrmVU" }
+      "manager": { "email": "mar.pryw@yahoo.com", "password": "4Y8xH@C._VSrmVU" },
+    "CYPRESS_RECORD_KEY": "46d9c621-9ac4-418b-b281-b5ca1a49b3f4"
     }
   }
 }
